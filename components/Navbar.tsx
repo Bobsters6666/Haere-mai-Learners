@@ -1,8 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
-import { DisplayedBadges, LogoutButton, Navlinks, Points } from '.'
+import { BadgesCollection, DisplayedBadges, LogoutButton, Navlinks, Points } from '.'
+import { NavbarProps } from '@/types'
 
-const Navbar = () => {
+const Navbar = ({ selectedPage, setSelectedPage, setIsBackdrop }: NavbarProps) => {
   return (
     <header className='w-[209px] h-[956px] nav-gradient shadow-components absolute top-1/2 -translate-y-1/2 left-9 rounded-[20px]'>
       <nav className='flex flex-col items-center justify-center text-white'>
@@ -25,14 +26,19 @@ const Navbar = () => {
         <p className='text-sm italic'>Streaker</p>
 
         <h3 className='pr-16 mt-16 text-sm font-bold'>Navigation</h3>
-        <Navlinks />
+        <Navlinks 
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+        />
 
         <h3 className='pr-20 mt-12 text-sm font-bold'>Badges</h3>
         <DisplayedBadges />
 
-        <p className='text-xs font-semibold pl-20 pt-6 red-hover'>View All</p>
+        <button className='text-xs font-semibold pl-20 pt-6 red-hover'>View All</button>
 
         <LogoutButton />
+
+        <BadgesCollection />
       </nav>
     </header>
   )

@@ -24,3 +24,7 @@
 .badges-ellipse {
   @apply w-[54px] h-[54px] bg-red-200 rounded-full flex justify-center items-center
 }
+
+.avatar__preset-ellipse {
+  @apply w-4 h-4 rounded-full bg-gray-500 hover:bg-gray-200 cursor-pointer
+}
